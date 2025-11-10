@@ -27,3 +27,21 @@ module packed_array;
     end
   end
 endmodule
+
+
+
+module packed_array;
+  bit[3:0][3:0]arr;
+ initial begin
+//    arr[0]=9;
+//    arr[1]=2;
+//    arr[2]=3;
+//    arr[3]=9;
+   
+//    arr='{1,2,3,4};
+   arr=16'h1234;
+   foreach(arr[i])begin
+     $display("arr[%0d]=%0h",i,arr[i]);
+   end
+ end
+endmodule
