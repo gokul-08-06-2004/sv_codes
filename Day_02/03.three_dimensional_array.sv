@@ -28,22 +28,3 @@ endmodule
 
 
 
-// Code your testbench here
-// or browse Examples
-module three_dimensional_unpacked;
-  integer i,j,k;
-  reg [7:0]arr[3:0][3:0][3:0]='{'{'{1,2,3,4},'{5,6,7,8},'{9,10,11,12},'{13,14,15,16}},
-                                '{'{1,2,3,4},'{5,6,7,8},'{9,10,11,12},'{13,14,15,16}},
-                                '{'{1,2,3,4},'{5,6,7,8},'{9,10,11,12},'{13,14,15,16}},
-                                '{'{1,2,3,4},'{5,6,7,8},'{9,10,11,12},'{13,14,15,16}}};
-  initial begin
-        $display("arr[0][1][2]=%0h",arr[0][1][2]);
-    for(i=0;i<4;i++)begin
-      for(j=0;j<4;j++)begin
-        for(k=0;k<4;k++)begin
-          $display("arr[%0d][%0d][%0d]=%0d",i,j,k,arr[i][j][k]);
-        end
-      end
-    end
-  end
-    endmodule
