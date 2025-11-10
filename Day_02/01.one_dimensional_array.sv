@@ -11,7 +11,6 @@ module one_dimensional_array;
       $display("arr[%0d]=%0d",i,arr[i]);
     end
   end
-
     endmodule
 
 
@@ -37,3 +36,4 @@ module one_dimenional_array;
 //     end
   end
 endmodule
+
