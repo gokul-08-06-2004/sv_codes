@@ -1,0 +1,27 @@
+module Dynamic_array;
+  int arr[],arr1[];
+  initial begin
+    arr=new[4];
+    arr1=new[10];
+    arr1='{10,9,8,7,6,5,4,3,2,1};
+    arr='{1,2,3,4};
+    foreach(arr[i])begin
+      $display("aar[%0d]=%0d",i,arr[i]);
+    end
+    $display("arr_size=%0d,arr_size=%0d",$size(arr),arr.size());
+    
+    arr=new[10](arr);
+    foreach(arr[i])begin
+      $display("arr[%0d]=%0d",i,arr[i]);
+    end
+    $display("arr size=%0d,arr_size=%0d",$size(arr),arr.size());
+    arr=new[20](arr1);
+    foreach(arr[i])begin
+      $display("arr[%0d]=%0d",i,arr[i]);
+    end
+    $display("arr_size=%0d,arr_size=%0d",arr.size(),$size(arr));
+    arr.delete();
+    arr1.delete();
+    $display("arr=%0d,arr1=%0d",arr.size(),arr1.size());  
+  end
+endmodule
