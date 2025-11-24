@@ -29,11 +29,12 @@ module one_dimenional_array;
     $display("arr[3]=%h",arr[3]);
     
 //     arr=16'hadcd;
-//     $display("arr=%h",arr);
+//     $display("arr=%h",arr);Cannot assign a packed type 'bit[15:0]' to an unpacked type 'reg[15:0] $[3:0]'
     
 //     for(i=0;i<4;i++)begin
 //       $display("arr[%0d]=%0d",i,arr[i]);
 //     end
   end
 endmodule
+
 
