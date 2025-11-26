@@ -28,3 +28,36 @@ module normal_class_with_object;
     w1.display();
   end
 endmodule
+
+
+//another example
+class brand;
+  string model_name;
+  int model_number;
+  // call f2 method to f1 method using this_keyword inside the class
+  function f1(string model_name,int model_number);
+//     this.f2("benz",model_number);
+    this.model_name=model_name;
+    this.model_number=model_number;
+  endfunction
+  
+  function f2(string model_name,int model_number);
+   this.model_name=model_name;
+   this.model_number=model_number;
+  endfunction
+  
+  function void display();
+    $display("model_name=%s model_number=%0d",model_name,model_number);
+  endfunction
+endclass
+  module with_this_keyword;
+    brand b1,b2;
+    initial begin
+      b1=new();
+      b1.f1("ferrai",2025);
+      b2=new();
+      b2.f2("lamogini",2026);
+      b1.display();
+      b2.display();
+    end
+  endmodule
