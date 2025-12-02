@@ -68,3 +68,41 @@ endmodule
 // # data=10 
 // # ph_number=0000000000 
 // # id=2
+
+class classA;
+  bit[7:0]addr;
+endclass
+
+class classB;
+  bit[7:0]data;
+  classA ad_r;
+endclass
+
+module m1;
+  classB c1,c2;
+  
+  initial begin
+    c1=new();
+    c1.ad_r=new();
+    
+    c1.data=20;
+    c1.ad_r.addr=30;
+    
+    c2=new c1;
+    $display("data=%0d addr=%0d",c1.data,c1.ad_r.addr);
+    $display("data=%0d addr=%0d",c2.data,c2.ad_r.addr);
+    
+    c2.data=10;
+    c2.ad_r.addr=50;
+    $display("data=%0d addr=%0d",c1.data,c1.ad_r.addr);
+    $display("data=%0d addr=%0d",c2.data,c2.ad_r.addr);
+    
+    
+  end
+endmodule
+
+// # data=20 addr=30
+// # data=20 addr=30
+// # data=20 addr=50
+// # data=10 addr=50
+
