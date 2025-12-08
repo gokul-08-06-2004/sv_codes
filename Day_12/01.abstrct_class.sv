@@ -108,3 +108,73 @@ module m1;
     b2.features();
   end
 endmodule
+
+-----------------------------------------------------------------------------------
+
+//pure virtual method
+//pure virtual method 
+
+virtual class shape;
+  
+  int a,b,l,h,i;
+  pure virtual function int area();
+    pure virtual function void display();
+endclass
+      
+      
+      class square extends shape;
+        function int area();//same as parent class method ,donot mention any variable inside parathesis:
+          i=a**2;
+        endfunction
+        function void display();
+          $display("area of aquare=%0d",i);
+        endfunction
+      endclass
+      
+      class rectangle extends shape;
+        function int area();
+          i=l*b;
+        endfunction
+        
+        function void display();
+          $display("area of rectangle =%0d",i);
+        endfunction
+      endclass
+      
+      class triangle extends shape;
+        function int area();
+          i=b*h;
+        endfunction
+        function void display();
+          $display("area of triangle=%0d",i);
+        endfunction
+      endclass
+      
+      module m1;
+        square s1;
+        rectangle r1;
+        triangle t1;
+        
+        initial begin
+          s1=new();
+          r1=new();
+          t1=new();
+          s1.a=2;
+          s1.area();
+          s1.display();
+          r1.l=23;
+          r1.b=1;
+          r1.area();
+          r1.display();
+          t1.b=3;
+          t1.h=4;
+          t1.area();
+          t1.display();
+          
+        end
+      endmodule
+        
+        
+//   area of aquare=4
+// # area of rectangle =23
+// # area of triangle=12
