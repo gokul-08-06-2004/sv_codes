@@ -36,22 +36,4 @@ endmodule
 // # data=0 src=12
 // # data=1 src=2
 
-class string_randomize;
-  
- rand string name;
-  
-  constraint range{name inside{[A:Z]};}
-endclass
 
-module m1;
-  string_randomize s1;
-  initial begin
-    s1=new();
-    for(int i=0;i<6;i++)begin
-      if(s1.randomize())
-        $display("name=%s",s1.name);
-      else
-        $display("randomize is failed");
-    end
-  end
-endmodule
