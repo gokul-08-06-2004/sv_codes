@@ -33,19 +33,10 @@ endmodule
 // # data=-4315301 addr=1
 // # data=-4315301 addr=1
 
-// This function rns before randomization happens.
-// if(num==1)
-// If pevious operation was WRITE (addr=1)
-// Then:
-// data.rand_mode(0)
-// ➜ Means disable randomization of addr
-// ➜ addr will keep previous value
-// else
-// If previous operation was READ (addr==0)
-// Then:
-// data.rand_mode(1);
-// ➜ Enable addr randomization normally 
-// Simple Meaning
-// Previous addr	Action now
-// 1 (Write)	Do NOT randomize data
-// 0 (Read)	Randomize data
+// ✅ Iteration Table (Very Clear)
+// Iter	num before	if(num)?	rand_mode	data randomized?	addr (randc)	post_randomize → num = addr	Printed
+// 1	0	FALSE → else	rand_mode(1)	YES → say 50	0	num = 0	data=50 addr=0
+// 2	0	FALSE → else	rand_mode(1)	YES → say 77	1	num = 1	data=77 addr=1
+// 3	1	TRUE → if	rand_mode(0)	NO (keeps 77)	0	num = 0	data=77 addr=0
+// 4	0	FALSE → else	rand_mode(1)	YES → say 120	1	num = 1	data=120 addr=1
+// 5	1	TRUE → if	rand_mode(0)	NO (keeps 120)	0	num = 0	data=120 addr=0
